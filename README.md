@@ -1,7 +1,7 @@
-#Sword-Slasher!
+Sword-Slasher!
 You start off as a sword and are stuck within a matrix surrounded by other enemy swords.
 
-#How to play
+How to play
 Use standard w, a, s, d keys to move around.
 To kill a mob simply click and the sword will swipe, killing the mob if you do enough damage
 For each mob kill you get, you earn coins and if a mob hits you you take damage
