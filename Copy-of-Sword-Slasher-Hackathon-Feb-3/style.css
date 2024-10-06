@@ -1,0 +1,1075 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow:hidden;
+  margin: 0;
+}
+
+img{
+    user-select: none;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-image: url("shadedBorders.png");
+  background-size: cover;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #7d2121;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #4b1616;
+}
+
+.mob1 {
+  z-index: 0;
+  width: 72px;
+  height: 160px;
+  background-image: url("enemy1.png");
+  background-size: 100% 100%;
+  position: absolute;
+  font-size: 0px;
+  transform-origin: center center;
+}
+.boss1{
+  z-index: 1;
+  width: 158px;
+  height: 436px;
+  background-image: url("boss1.png");
+  background-size: 100% 100%;
+  filter: brightness(30%), contrast(150%);
+  position: absolute;
+  font-size: 0px;
+  transform-origin: center center;
+  filter: drop-shadow(0 0 5px #FFD700)
+          drop-shadow(0 0 10px #FFD700)
+          drop-shadow(0 0 20px #ff0000);
+}
+button{
+  z-index: 100;
+}
+#tip{
+  position:absolute;
+  height:30px;
+  width:30px;
+  top:-20px;
+  left:26px;
+  border-radius: 50%;
+  transform-origin:center center;
+  user-select: none;
+}
+
+#playercontainer{
+  border:0px solid lime;
+  user-select: none;
+}
+
+#playerhitbox{
+  width:45px;
+  height:100px;
+  border:0px solid red;
+  position: absolute;
+  top: calc(50% + 25px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  user-select: none;
+
+}
+#player {
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width:86px;
+  height:175px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform-origin: center center;
+  user-select: none;
+}
+#playerimg{
+  width:86px;
+  height:175px;
+}
+
+#background {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 2500%;
+  left: 2500%;
+  width: 5000%;
+  height: 5000%;
+  background-image: url("background3.jpeg");
+  user-select: none;
+}
+.hittext{
+  z-index:4;
+  position: absolute;
+  top: -80px;
+  left: 26px;
+  font-size: 30px;
+  color:orange;
+  text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+  transform-origin: center center;
+  user-select: none;
+}
+.crittext{
+  z-index:4;
+  position: absolute;
+  top: -75px;
+  left: 26px;
+  font-size: 50px;
+  color:#00ff2a;
+  text-shadow: 0 0 4px #000000, 0 0 6px #000000;
+  transform-origin: center center;
+  user-select: none;
+}
+
+.swinganim {
+  animation: swinganim 0.5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes swinganim {
+
+  20% {
+    transform: rotate(-90deg);
+  }
+
+  70% {
+    transform: rotate(90deg);
+  }
+
+  100% {
+    transform: rotate(0degs);
+  }
+}
+
+.closeanim{
+  animation:closeanim 1s;
+  animation-iteration-count: 1;
+
+}
+
+.openanim{
+  animation:openanim 1s;
+  animation-iteration-count: 1;
+}
+
+@keyframes closeanim{
+  0%{width:50%;height:50%;opacity:1;}
+  100%{width:0%;height:0px;opacity:0;}
+}
+
+@keyframes openanim{
+  0%{width:0%;height:0px;opacity:0;}
+  85%{width:52%;height:52%;opacity:1;}
+  100%{width:50%;height:50%;opacity:1;}
+}
+
+.hoverup{
+  animation-name: hoverup;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+}
+
+@keyframes hoverup{
+  0%{opacity:0}
+  100%{opacity:1;}
+}
+
+.hoverdis{
+  animation-name: hoverdis;
+  animation-duration:0.2s;
+  animation-iteration-count: 1;
+}
+
+@keyframes hoverdis{
+  0%{opacity:1}
+  100%{opacity:0;}
+}
+.turret1{
+  z-index: 2;
+  width: 100px;
+  height:100px;
+  border-radius:100%;
+  background-image: url("sawblade.png");
+  position: absolute;
+  background-size: 100% 100%;
+  transform-origin: center center;
+}
+
+
+#shop {
+  display: block;
+  position: absolute;
+  z-index: 100;
+  width: 50vw;
+  top: 50%;
+  left: 50%;
+  height: 70vh;
+  background-image: url("shopbackground.png");
+  background-clip: padding-box;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  box-shadow: inset -2px 0 0 0 #2b1d14,
+              inset 2px 0 0 0 #2b1d14,
+              inset 0 -2px 0 0 #2b1d14,
+              inset 0 2px 0 0 #2b1d14;
+  border: 30px solid transparent;
+  border-image: url("shopborder.png")175 round;
+  overflow:hidden;
+}
+#shop.hidden {
+  pointer-events: none;
+}
+
+.shopopen{
+  animation-name: shopopen;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes shopopen{
+  0%{width:0vw;height: 0vh;}
+  95%{width:51vw;height:71vh;}
+  100%{width:50vw;height:70vh;}
+}
+
+.shopclose{
+  animation-name: shopclose;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes shopclose{
+  0%{width:50vw;height: 70vh;}
+  5%{width:51vw;height:71vh;}
+  100%{width:0vw;height:0vh;}
+}
+
+#shoptextpos{
+  position:absolute;
+  left:20px;
+}
+
+#shoptextpos{
+  font-weight:900;
+  font-family:arial white, sans serif;
+  text-shadow: 0 0 8px #000000, 0 0 10px #000000;
+  color:white;
+}
+#shoptext2pos{
+  font-weight:900;
+  font-family:arial white, sans serif;
+  text-shadow: 0 0 12px #000000, 0 0 14px #000000;
+  color:#e6b3b3;
+  font-size: 25px;
+  padding:8px;
+  transition-duration: 0.2s;
+  transition-delay: 0s;
+}
+#shoptext2pos:hover{
+  
+  text-shadow: 0 0 16px #000000, 0 0 20px #000000;
+  color:#FFD700;
+}
+#upgradetablecontainer{
+  border: 10px solid transparent;
+  border-image: url("shopbordershops.png")40 round;
+  overflow-y: scroll;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:95%;
+  height:80%;
+  position:absolute;
+  top: calc(50% + 25px);
+}
+#upgradetable{
+  margin-top:-25px;
+}
+
+.bordpr{
+  text-align: center;
+  width: 31vw;
+  background-image: url("panelMenu3.png");
+  background-size: cover;
+  font-size:50%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.prices,
+.buttons,
+.levels {
+  text-align: center;
+  width: 31vw;
+  font-size: 1em;
+  font-weight: 900;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 8px #000000, 0 0 10px #000000;
+  color: white;
+  background-image: url("panelMenu3.png");
+  background-size: cover; /* Adjust as needed */
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.prices {
+  height: auto;
+}
+
+.buttons {
+  height: 25.2vh;
+}
+
+.levels {
+  height: auto;
+}
+.buttons button {
+  width: 100%;
+  height: 100%;
+  background-image:url("shadedBorders.png"),url("mapBG.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position:
+    bottom right,
+    left,
+    right;
+  font-weight: 900;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 8px #000000, 0 0 10px #000000;
+  color: white;
+}
+
+
+.Container{
+  position:fixed;
+  width:180px;
+  height:50px;
+  overflow:hidden;
+  z-index:101;
+  border:2px solid black;
+  background-image:url("shadedBorders.png");
+  border-radius:25%;
+  left:1.18vw;
+}
+#coinContainer{
+  top:2vh;
+}
+#heartContainer{
+  top:calc(2vh + 60px);
+}
+#regencont{
+  position:fixed;
+  padding-top:15px;
+  transform-origin: center center;
+  left:135px;
+}
+#attritionContainer{
+  left:calc(100vw - 180px - 1.18vw);
+  top:2vh;
+}
+#killsContainer{
+  top:calc(2vh + 120px);
+}
+#leaderboardContainer{
+  bottom:50px;
+  width:75px;
+  height:30px;
+  overflow:hidden;
+  z-index:101;
+  border:2px solid black;
+  border-radius:25%;
+}
+#leaderboardContainer button{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  background-image:url("shadedBorders.png");
+  width:100%;
+  height:100%;
+}
+#leaderboardContainer button img{
+  margin-left:-45px;
+}
+#chatContainer{
+  bottom:90px;
+  width:75px;
+  height:30px;
+  overflow:hidden;
+  z-index:101;
+  border:2px solid black;
+  border-radius:25%;
+}
+#chatContainer button{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  background-image:url("shadedBorders.png");
+  width:100%;
+  height:100%;
+}
+#chatContainer button img{
+  margin-left:-42.5px;
+}
+#custoContainer{
+  bottom: 95px;
+  left:calc(100vw - 75px - 1.18vw);
+  position:fixed;
+  width:75px;
+  height:30px;
+  overflow:hidden;
+  z-index:101;
+  border:2px solid black;
+  border-radius:25%;
+}
+#custoContainer button{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  background-image:url("shadedBorders.png");
+  width:100%;
+  height:100%;
+}
+#custoContainer button img{
+  margin-left:-42.5px;
+}
+#restartContainer{
+  bottom:10px;
+  width:75px;
+  height:30px;
+  overflow:hidden;
+  z-index:101;
+  border:2px solid black;
+  border-radius:25%;
+}
+#restartContainer button{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  background-image:url("shadedBorders.png");
+  width:100%;
+  height:100%;
+}
+#restartContainer button img{
+  margin-left:-45px;
+}
+#shopContainer{
+  bottom:10px;
+  left:calc(100vw - 75px - 1.18vw);
+  position:fixed;
+  width:75px;
+  height:75px;
+  overflow:hidden;
+  z-index:101;
+  border:2px solid black;
+  border-radius:25%;
+}
+#shopContainer button{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  background-image:url("shadedBorders.png");
+  width:100%;
+  height:100%;
+}
+#shopContainer button img{
+  margin-left:-47.5px;
+}
+.Container img,
+.Container h2 {
+  position:absolute;
+  padding-left:10px;
+  top:50%;
+  transform:translate(0,-50%);
+}
+.Container h2 {
+    left:40px;
+    padding-bottom: 30px;
+    display: inline-block;
+    vertical-align: middle; 
+    font-weight: 900;
+    font-family: Arial, sans-serif;
+    text-shadow: 0 0 8px #000000, 0 0 10px #000000;
+    color: white;
+}
+
+.regenup {
+  animation-name: regenup;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes regenup {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+.regendis {
+  animation-name: regendis;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes regendis {
+  0% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.containertable{
+  z-index:101;
+  position:fixed;
+  width:256px;
+  height:256px;
+  overflow:hidden;
+  border:2px solid black;
+  background-image:url("shadedBorders.png");
+  left:calc(100vw - 256px - 1.18vw);
+  bottom:10px;
+  color:white;
+}
+
+.lead {
+  text-align: center;
+  width: 31vw;
+  font-size: 1em;
+  font-weight: 900;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 8px #000000, 0 0 10px #000000;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.containertable table {
+  margin-top: 0; /* Add this line */
+}
+
+.containertable td {
+  padding-top: 10px; /* Adjust this value as needed */
+}
+#deathscreen{
+  width:100vw;
+  height:100vh;
+  left:50vw;
+  top:50vh;
+   background-color:rgba(0,0,0,.7);
+  position:absolute;
+  transform:translate(-50%,-50%);
+  z-index:102;
+}
+.showdeath{
+  animation-name: showdeath;
+  animation-duration: 0.8s;
+  animation-iteration-count: 1;
+}
+
+@keyframes showdeath{
+  0%{opacity:0;}
+ 100%{opacity:1;}
+}
+.deathtext{
+  text-align: center;
+  color:white;
+}
+#deathtext{
+  font-stretch: expanded;
+  font-size: 300%;
+  font-weight: 900;
+}
+#otherstuf {
+  position: absolute;
+  left: 50vw;
+  top: 50vh;
+  transform-origin: center center;
+  transform: translate(-50%, -50%); 
+}
+
+#playscreen{
+  width:100vw;
+  height:100vh;
+  left:50vw;
+  top:50vh;
+   background-color:rgba(0,0,0,.7);
+  position:absolute;
+  transform:translate(-50%,-50%);
+   z-index:102;
+}
+#usernamer{
+  color:white;
+  position:absolute;
+  left:50%;
+  top:55%;
+  transform:translate(-50%,-50%);
+
+}
+#usernamerform{
+  opacity:0.7;
+  padding:2px;
+  background-color:#7e431b;
+  width:300px;
+  height:auto;
+}
+#name{
+  width:97%;
+  background-image: url("shadedBorders.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align:center;
+  letter-spacing: 3px;
+  font-weight: 900;
+  font-size:200%;
+  color:#2e2e2e;
+}
+#playbutcont{
+  padding:2px;
+  background-color:#7e431b;
+  width:300px;
+  height:120px;
+  position:absolute;
+  left:50%;
+  top:calc(60vh + 65px);
+  transform:translate(-50%,-50%);
+  opacity:0.7;
+}
+#playbut{
+  width:100%;
+  height:100%;
+  background-image:url("shadedBorders.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-weight: 900;
+  font-size:200%;
+  letter-spacing: 5px;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 10px #ffffff, 0 0 10px #ffffff;
+  color:#2e2e2e;
+}
+
+#title{
+  width:118vh;
+  height:50vh;
+  position:absolute;
+  left:50%;
+  top:30%;
+  transform: translate(-50%,-50%);
+  z-index:102;
+}
+
+#title img{      width: 100%;
+      height: 100%;
+}
+
+#cov{
+  width:100vw;
+  height:100vh;
+  background-color:#262626;
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  z-index:111;
+}
+
+#cov img{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+}
+
+#leaderboard {
+  z-index: 102;
+  position: fixed;
+  overflow-y:scroll;
+  background-image: url("shadedBorders.png");
+  background-size: cover;
+  color: white;
+  width: 40vw;
+  top: 50%;
+  left: 50%;
+  height: 70vh;
+  background-clip: padding-box;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  border: 30px solid transparent;
+  border-image: url("shopborder.png")175 round;
+}
+
+#innertable {
+  background-color:rgb(0, 0, 0,.7);
+  border: 3px solid black;
+  width: calc(100%);
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
+  table-layout: fixed;
+  height: calc(95%);
+}
+#innertable td {
+  overflow: hidden;
+  width: 33.33%;
+  white-space: nowrap;
+  text-align: center;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  flex-grow: 1;
+  padding: 5px 0px;
+  box-sizing: border-box;
+}
+#innertable tr{
+  display: flex;
+  width: 100%;
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+
+.namestuf {
+  text-overflow: ellipsis;
+  overflow:hidden;
+  white-space: nowrap;
+  overflow-wrap: none; 
+  word-wrap:none;
+}
+
+.header-container {
+  background-color:rgb(0, 0, 0,.8);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.header {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center; 
+  flex: 1;
+}
+
+
+.lead {
+  text-align: center;
+  width: 31vw;
+  font-size: 1em;
+  font-weight: 900;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 8px #000000, 0 0 10px #000000;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/*leaderboardanimation*/
+.leaderopen{
+  animation-name: leaderopen;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes leaderopen{
+  0%{width:0vw;height: 0vh;}
+  95%{width:41vw;height:71vh;}
+  100%{width:40vw;height:70vh;}
+}
+
+.leaderclose{
+  animation-name: leaderclose;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes leaderclose{
+  0%{width:40vw;height: 70vh;}
+  5%{width:41vw;height:71vh;}
+  100%{width:0vw;height:0vh;}
+}
+
+.leadbutton {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    background-color: rgba(0,0,0,0.5);
+    border: 2px solid #000000;
+    cursor: pointer;
+    border-radius:5px;
+}
+
+
+#leadbuttons{
+  z-index:100;
+  position: fixed;
+  left: calc(50% + 20vw + 25px);
+  top:calc(50% - 35vh + 15px);
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start;
+}
+
+#coinslead {
+  background-image: url("coin.png");
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#mobkilllead {
+  background-image: url("skull.png");
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#attritionlead {
+  background-image: url("attrition.png");
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#healthlead {
+  background-image: url("heart.png");
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.leadbut{
+  animation-name: leadbut;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes leadbut{
+  0%{opacity:0;}
+  100%{opacity:1;}
+}
+
+.leadbutdis{
+  animation-name: leadbutdis;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes leadbutdis{
+  0%{opacity:1;}
+  100%{opacity:0;}
+}
+
+#chat{
+  position:fixed;
+  z-index:105;
+
+}
+
+#chatboard {
+  z-index: 102;
+  position: fixed;
+  background-image: url("shadedBorders.png");
+  background-size: cover;
+  color: white;
+  width: 40vw;
+  top: 50%;
+  left: 50%;
+  height: 70vh;
+  background-clip: padding-box;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  border: 30px solid transparent;
+  border-image: url("shopborder.png")175 round;
+}
+
+#innertable2 {
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
+  table-layout: fixed;
+  background-color:rgb(0, 0, 0,.7);
+  border: 3px solid black;
+  width: calc(100% - 6px);
+  height: calc(95% - 60px);
+  padding-bottom:10px;
+}
+#innertable2 td {
+  vertical-align: top;
+  text-align:center;
+  width: 50%;
+  flex-grow: 1;
+  padding: 5px 0px;
+  box-sizing: border-box;
+  white-space: normal;
+  overflow-wrap: break-word; 
+  word-wrap: break-word;
+}
+
+#innertable2 tr {
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#chatbutcont{
+  width:100px;
+  height:45px;
+}
+#chatbut{
+  color:white;
+  font-weight:900;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  background-color:rgb(0, 0, 0,.7);
+  width:100%;
+  height:100%;
+}
+#chatform{
+  position:fixed;
+  left:100px;
+  width: calc(100% - 100px);
+  height:40px;
+}
+#chatbox{
+  width:100%;
+  height:100%;
+  font-size:24px;
+}
+
+#leaderboard {
+  z-index: 102;
+  position: fixed;
+  overflow-y:scroll;
+  background-image: url("shadedBorders.png");
+  background-size: cover;
+  color: white;
+  width: 40vw;
+  top: 50%;
+  left: 50%;
+  height: 70vh;
+  background-clip: padding-box;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  border: 30px solid transparent;
+  border-image: url("shopborder.png")175 round;
+}
+
+#innertable3 {
+  background-color:rgb(0, 0, 0,.7);
+  border: 3px solid black;
+  width: calc(100%);
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
+  table-layout: fixed;
+  height: calc(95%);
+}
+#innertable3 td {
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  flex-grow: 1;
+  padding: 5px 0px;
+  box-sizing: border-box;
+}
+#innertable3 tr{
+  display: flex;
+  width: 100%;
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+
+#custoboard {
+  z-index: 102;
+  position: fixed;
+  overflow-y:scroll;
+  background-image: url("shadedBorders.png");
+  background-size: cover;
+  color: white;
+  width: 40vw;
+  top: 50%;
+  left: 50%;
+  height: 70vh;
+  background-clip: padding-box;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  border: 30px solid transparent;
+  border-image: url("shopborder.png")175 round;
+}
+
+.custbox{
+    width:100%;
+    height:100%;
+    font-size:20px;
+}
+
+.linkforma{
+  width:80%;
+}
+.linkformb{
+  width:20%;
+}
+
+#custobutcont{
+  width:175px;
+  height:75px;
+
+  right:20px;
+  position:fixed;
+}
+#custobut{
+  font-size:30px;
+  color:white;
+  font-weight:900;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  background-color:rgb(0, 0, 0,.7);
+  width:100%;
+  height:100%;
+}
