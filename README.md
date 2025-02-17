@@ -12,3 +12,5 @@ You can pause the game at any point by opening shop, chat, leaderboards, etc.
 #Have Fun!!!
 
 From Kai, Max, and Vyom
+
+2024 Viking Hacks 2nd Place Future of Entertainment
